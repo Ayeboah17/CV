@@ -280,7 +280,7 @@ export default function Home() {
       >
         <Space wrap>
           <Button 
-            type="primary" 
+            type="primary " 
             href="https://www.ghanaunion.cz" 
             target="_blank"
             icon={<GlobalOutlined />}
