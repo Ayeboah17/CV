@@ -1,116 +1,316 @@
 'use client'
 
-import { useParams } from "next/navigation";
+import { useState } from "react";
+import { Button,Card, Divider,Typography,Space,Row,Col,Avatar,Tag,FloatButton,Progress,List,Grid} from "antd";
+import { DownloadOutlined, GlobalOutlined, MailOutlined, PhoneOutlined, EnvironmentOutlined, CodeOutlined, ToolOutlined, StarOutlined} from '@ant-design/icons';
 import Image from "next/image";
-import styles from "./page.module.css";
-import { use, useState } from "react";
-import { Button } from "antd";
-import ButtonGroup from "antd/es/button/button-group";
-import {translations} from "./Data/Translation.js";
-import { DownloadOutlined } from '@ant-design/icons';
-import FloatButtonGroup from "antd/es/float-button/FloatButtonGroup";
-import FloatButton from "antd/es/float-button/FloatButton";
+import { translations } from "./Data/Translation.js";
+
+const { Title, Text, Paragraph } = Typography;
+const { useBreakpoint } = Grid;
 
 export default function Home() {
+  const [lang, setLang] = useState(navigator.language?.includes('cs') ? 1 : 0);
+  const screens = useBreakpoint();
 
-
-const [lang,setLang] = useState(navigator.language?.includes('cs') ? 1 : 0);
-console.log(navigator.language);
+  const skillsData = [
+    {
+      title: translations[lang].programmingFrameworks,
+      icon: <CodeOutlined />,
+      skills: [
+        { name: 'JavaScript', level: 70 },
+        { name: 'HTML & CSS', level: 80 },
+        { name: 'React', level: 75 },
+        { name: 'React Native', level: 60 },
+        { name: 'PHP', level: 40 },
+      ]
+    },
+    {
+      title: translations[lang].toolsPlatforms,
+      icon: <ToolOutlined />,
+      skills: [
+        { name: 'Firebase', level: 60 },
+        { name: 'Git', level: 80 },
+        { name: 'VS Code', level: 90 },
+        { name: 'WordPress', level: 85 },
+        { name: 'MS Office', level: 90 },
+      ]
+    }
+  ];
 
   return (
-  <div className="container">
-<section className="section">
-    <Image
-      src={'/cv_pic.jpg'}
-      alt="Augustine Kwasi Yeboah"
-      width={150}
-      height={150}
-      className="profile-image"
-      style={{ borderRadius: '50%' }}
-    />
-    <h1>Augustine Kwasi Yeboah</h1>
-    <p className="contact-info">📍 Praha, Czechia &nbsp;|&nbsp; 📞 +420 776 213 425 &nbsp;|&nbsp; ✉️ ayeboahjnr@outlook.cz</p>
-</section>    
-
-     <ButtonGroup  className="language-toggle">
-      <Button onClick={() => setLang(0)}>English</Button>
-      <Button onClick={() => setLang(1)}>Čeština</Button>
-    </ButtonGroup>
-
-      <section className="section">
-      <h2>{translations[lang].education}</h2>
-      <p><span className="highlight">{translations[lang].schoolName}</span><br />
-        {translations[lang].schoolPeriod}<br />
-        {translations[lang].schoolProgram}
-      </p>
-      <p><span className="highlight">{translations[lang].universityName}</span><br />
-        {translations[lang].universityPeriod}<br />
-        {translations[lang].universityField}
-      </p>
-    </section>
-
-    <section className="section">
-      <h2>{translations[lang].technicalSkills}</h2>
-      <div className="skills-grid">
-        <div className="skill-block">
-          <h3>{translations[lang].programmingFrameworks}</h3>
-          <ul>
-            <li>JavaScript ⭐⭐⭐</li>
-            <li>HTML & CSS ⭐⭐⭐</li>
-            <li>React ⭐⭐⭐</li>
-            <li>React Native ⭐⭐</li>
-            <li>PHP ⭐</li>
-          </ul>
+    <div style={{ 
+      maxWidth: 1200, 
+      margin: '0 auto', 
+      padding: screens.xs ? '16px' : '32px',
+      backgroundColor: '#fafafa'
+    }}>
+      {/* Header Section */}
+      <div style={{ 
+        display: 'flex', 
+        flexDirection: screens.md ? 'row' : 'column',
+        alignItems: 'center',
+        gap: '32px',
+        marginBottom: '48px',
+        padding: '32px',
+        backgroundColor: 'white',
+        borderRadius: '12px',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
+      }}>
+        <Avatar 
+          size={screens.md ? 180 : 120} 
+          src={
+            <Image
+              src={'/cv_pic.png'}
+              alt="Augustine Kwasi Yeboah"
+              width={180}
+              height={180}
+              style={{ borderRadius: '50%', objectFit: 'cover' }}
+            />
+          }
+          style={{ border: '4px solid #1890ff' }}
+        />
+        
+        <div style={{ flex: 1 }}>
+          <Title level={2} style={{ margin: 0, color: '#1a1a1a' }}>Augustine Kwasi Yeboah</Title>
+          <Text strong style={{ 
+            fontSize: '18px', 
+            color: '#1890ff',
+            display: 'block',
+            margin: '8px 0 16px'
+          }}>
+            {translations[lang].position}
+          </Text>
+          
+          <Space size="large" wrap style={{ marginBottom: '16px' }}>
+            <Space>
+              <EnvironmentOutlined style={{ color: '#666' }} />
+              <Text>Praha, Czechia</Text>
+            </Space>
+            <Space>
+              <PhoneOutlined style={{ color: '#666' }} />
+              <Text>+420 776 213 425</Text>
+            </Space>
+            <Space>
+              <MailOutlined style={{ color: '#666' }} />
+              <Text>ayeboahjnr@outlook.cz</Text>
+            </Space>
+          </Space>
+          
+          <Space>
+            <Button 
+              onClick={() => setLang(0)} 
+              type={lang === 0 ? 'primary' : 'text'}
+              shape="round"
+            >
+              English
+            </Button>
+            <Button 
+              onClick={() => setLang(1)} 
+              type={lang === 1 ? 'primary' : 'text'}
+              shape="round"
+            >
+              Čeština
+            </Button>
+          </Space>
         </div>
-        <div className="skill-block">
-          <h3>{translations[lang].toolsPlatforms}</h3>
-          <ul>
-            <li>Firebase ⭐⭐</li>
-            <li>Git ⭐⭐⭐</li>
-            <li>VS Code ⭐⭐⭐</li>
-            <li>WordPress ⭐⭐⭐</li>
-            <li>MS Office (Word, Excel, PowerPoint) ⭐⭐⭐</li>
-          </ul>
-        </div>
-        <div className="skill-block">
-          <h3>{translations[lang].other}</h3>
-          <ul>
-            {translations[lang].otherSkills.map((skill, index) => (
-              <li key={index}>{skill}</li>
+      </div>
+
+      {/* Two Column Layout */}
+      <Row gutter={[32, 32]}>
+        {/* Left Column */}
+        <Col xs={24} md={16}>
+          {/* About Section */}
+          <Card
+            bordered={false}
+            style={{ 
+              marginBottom: '24px',
+              borderRadius: '12px',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
+            }}
+          >
+            <Title level={4} style={{ color: '#1a1a1a' }}>About Me</Title>
+            <Paragraph style={{ fontSize: '16px', lineHeight: '1.8' }}>
+              {translations[lang].aboutMe}
+            </Paragraph>
+          </Card>
+
+          {/* Experience Section */}
+          <Card
+            bordered={false}
+            style={{ 
+              marginBottom: '24px',
+              borderRadius: '12px',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
+            }}
+          >
+            <Title level={4} style={{ color: '#1a1a1a' }}>{translations[lang].experience}</Title>
+            <List
+              dataSource={translations[lang].experienceDetails}
+              renderItem={(item, index) => (
+                <List.Item key={index} style={{ padding: '12px 0' }}>
+                  <div style={{ display: 'flex', gap: '16px' }}>
+                    <div style={{ 
+                      width: '48px', 
+                      height: '48px', 
+                      backgroundColor: '#1890ff10',
+                      borderRadius: '8px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}>
+                      <StarOutlined style={{ color: '#1890ff', fontSize: '20px' }} />
+                    </div>
+                    <div>
+                      <Text strong style={{ display: 'block', marginBottom: '4px' }}>{item}</Text>
+                      <Text type="secondary" style={{ display: 'block', marginBottom: '4px' }}>{item} • {item}</Text>
+                      <Text>{item}</Text>
+                    </div>
+                  </div>
+                </List.Item>
+              )}
+            />
+          </Card>
+        </Col>
+
+        {/* Right Column */}
+        <Col xs={24} md={8}>
+          {/* Education Section */}
+          <Card
+            bordered={false}
+            style={{ 
+              marginBottom: '24px',
+              borderRadius: '12px',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
+            }}
+          >
+            <Title level={4} style={{ color: '#1a1a1a' }}>{translations[lang].education}</Title>
+            <div style={{ marginBottom: '20px' }}>
+              <Text strong style={{ display: 'block' }}>{translations[lang].universityName}</Text>
+              <Text type="secondary">{translations[lang].universityPeriod}</Text>
+              <Paragraph>{translations[lang].universityField}</Paragraph>
+            </div>
+            <div>
+              <Text strong style={{ display: 'block' }}>{translations[lang].schoolName}</Text>
+              <Text type="secondary">{translations[lang].schoolPeriod}</Text>
+              <Paragraph>{translations[lang].schoolProgram}</Paragraph>
+            </div>
+          </Card>
+
+          {/* Skills Section */}
+          <Card
+            style={{ 
+              marginBottom: '24px',
+              borderRadius: '12px',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
+            }}
+          >
+            <Title level={4} style={{ color: '#1a1a1a' }}>{translations[lang].technicalSkills}</Title>
+            {skillsData.map((skillGroup, index) => (
+              <div key={index} style={{ marginBottom: '20px' }}>
+                <Space size="small" style={{ marginBottom: '12px' }}>
+                  {skillGroup.icon}
+                  <Text strong>{skillGroup.title}</Text>
+                </Space>
+                <Space direction="vertical" style={{ width: '100%' }}>
+                  {skillGroup.skills.map((skill, i) => (
+                    <div key={i}>
+                      <Text style={{ display: 'block', marginBottom: '4px' }}>{skill.name}</Text>
+                      <Progress 
+                        percent={skill.level} 
+                        showInfo={false} 
+                        strokeColor="#1890ff"
+                        trailColor="#f0f0f0"
+                      />
+                    </div>
+                  ))}
+                </Space>
+              </div>
             ))}
-          </ul>
-        </div>
-      </div>
-    </section>
+            
+            <div>
+              <Text strong style={{ display: 'block', marginBottom: '12px' }}>
+                {translations[lang].other}
+              </Text>
+              <Space size={[8, 8]} wrap>
+                {translations[lang].otherSkills.map((skill, index) => (
+                  <Tag key={index} style={{ 
+                    borderRadius: '4px',
+                    padding: '4px 8px',
+                    backgroundColor: '#1890ff10',
+                    color: '#1890ff',
+                    border: 'none'
+                  }}>
+                    {skill}
+                  </Tag>
+                ))}
+              </Space>
+            </div>
+          </Card>
 
+          {/* Languages Section */}
+          <Card
+            bordered={false}
+            style={{ 
+              borderRadius: '12px',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
+            }}
+          >
+            <Title level={4} style={{ color: '#1a1a1a' }}>🌐 {translations[lang].languages}</Title>
+            <div style={{ marginBottom: '16px' }}>
+              <Text strong style={{ display: 'block' }}>English</Text>
+              <Text type="secondary">{translations[lang].english}</Text>
+            </div>
+            <div>
+              <Text strong style={{ display: 'block' }}>Czech</Text>
+              <Text type="secondary">{translations[lang].czech}</Text>
+            </div>
+          </Card>
+        </Col>
+      </Row>
 
-    <section className="section">
-      <h2>🌐 {translations[lang].languages}</h2>
-      <p>{translations[lang].english}</p>
-      <p>{translations[lang].czech}</p>
-    </section>
+      {/* Projects Links */}
+      <Card
+        style={{ 
+          marginTop: '32px',
+          borderRadius: '12px',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
+          textAlign: 'center'
+        }}
+      >
+        <Space wrap>
+          <Button 
+            type="primary" 
+            href="https://www.ghanaunion.cz" 
+            target="_blank"
+            icon={<GlobalOutlined />}
+            shape="round"
+            size="large"
+          >
+            Ghana Union
+          </Button>
+          <Button 
+            type="primary" 
+            href="https://www.lighthousesda.cz" 
+            target="_blank"
+            icon={<GlobalOutlined />}
+            shape="round"
+            size="large"
+          >
+            Lighthouse Church
+          </Button>
+        </Space>
+      </Card>
 
-    <section className="section">
-      <h2>{translations[lang].experience}</h2>
-      <ul>
-        {translations[lang].experienceDetails.map((item, index) => (
-          <><li key={index}>{item}</li> <br/></>
-        ))}
-      </ul>
-    </section>
-
-    <section className="section">
-      <div id="links">
-      <Button type="default" href="https://www.ghanaunion.cz" rel="noopener noreferrer" target="_blank">Ghana Union Czech Republic</Button>
-      <Button type="default" href="https://www.lighthousesda.cz" rel="noopener noreferrer" target="_blank"> Lighthouse Church</Button>
-      
-      </div>
-    </section>
-
-    <FloatButton type="primary" href={`./cv_${lang}.pdf`}  download icon={<DownloadOutlined />} size="medium">{translations[lang].downloadCV}</FloatButton>
-
-
-    
-  </div>
+      {/* Download Button */}
+      <FloatButton
+        type="primary"
+        href={`./yeboah_cv.pdf`}
+        download
+        icon={<DownloadOutlined />}
+        tooltip={translations[lang].downloadCV}
+        style={{ right: screens.xs ? '16px' : '32px', bottom: screens.xs ? '16px' : '32px' }}
+      />
+    </div>
   );
 }
