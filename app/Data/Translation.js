@@ -1,69 +1,83 @@
 export const translations = [
+  // English
   {
-    profile: "💼 Profile",
-    technicalSkills: "🛠️ Technical Skills",
-    programmingFrameworks: "💻 Programming & Frameworks",
-    toolsPlatforms: "🧰 Tools & Platforms",
-    other: "🖥️ Other",
-    otherSkills:[, 
-      "Custom PC Building ⭐⭐⭐",
-      "Audio/Video Editing ⭐⭐",
-      "Audio-Visual Technician ⭐⭐⭐"
-    ] ,
-    customPCBuildingDescription: "I can build custom PCs for various needs, from gaming to professional workstations.",
-    education: "🎓 Education",
-    schoolName: "Střední škola elektrotechniky, multimédií a informatiky",
-    schoolPeriod: "2021 – 2025",
-    schoolProgram: "Program: 18-20-M / 01 - Software Applications and Programming",
+    home: "Home",
+    about: "About",
+    skills: "Skills",
+    experience: "Experience",
+    education: "Education",
+    contact: "Contact",
+    welcome: "Welcome to my portfolio",
+    position: "Full Stack Developer",
+    intro: "Passionate developer creating innovative web solutions with modern technologies.",
+    downloadCV: "Download CV",
+    contactMe: "Contact Me",
+    aboutMe: "About Me",
+    aboutDetail: "I'm a dedicated full-stack developer with experience in creating web applications using modern technologies like React, Next.js, and Firebase. I enjoy solving complex problems and building user-friendly interfaces.",
+    technicalSkills: "Technical Skills",
+    programmingFrameworks: "Programming & Frameworks",
+    toolsPlatforms: "Tools & Platforms",
+    experienceDetails: [
+      {
+        role: "Web Developer",
+        company: "Freelance",
+        period: "2022 - Present",
+        description: "Developed websites for clients using React, JavaScript, and modern web technologies."
+      },
+      {
+        role: "AV Technician",
+        company: "Church Organization",
+        period: "2021 - Present",
+        description: "Managed audio-visual equipment and live streaming services."
+      }
+    ],
     universityName: "Provozně ekonomická fakulta ČZU",
     universityPeriod: "2025 – Present",
-    universityField: "Field: Informatika",
-    languages: "Languages",
-    english: "English - Native Speaker",
-    czech: "Čeština - Fluent",
-    experience: "🛠️ Experience",
-    experienceDetails: [
-      "I made a website for a local church using javascript, HTML, and CSS and later converted it to React to add dynamic features. ",
-      "I manage audio-visual equipment and  and livestreaming for a church",
-      "I made a website for a non-profit organization using using React and made an admin app to manage members, donations, events and registrations. with React and Firebase.",
-    ],
-    downloadCV: "Download CV",
-    about:'About Me',
-    aboutMe:`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`
-  },
-
-  {
-    profile: "💼 Profil",
-    technicalSkills: "🛠️ Technické dovednosti",
-    programmingFrameworks: "💻 Programování & Frameworky",
-    toolsPlatforms: "🧰 Nástroje & Platformy",
-    other: "🖥️ Ostatní",
-    otherSkills: [
-      "Sestavování vlastních PC ⭐⭐⭐",
-      "Úprava zvuku a videa ⭐⭐",
-      "Audio-vizuální technik ⭐⭐⭐"
-    ],
-    customPCBuilding: "Sestavování vlastních PC",
-    customPCBuildingDescription: "Mohu sestavit vlastní PC pro různé potřeby, od hraní her po profesionální pracovní stanice.",
-    education: "🎓 Vzdělání",
+    universityField: "Field: Informatics",
     schoolName: "Střední škola elektrotechniky, multimédií a informatiky",
     schoolPeriod: "2021 – 2025",
-    schoolProgram: "Obor: 18-20-M / 01 - Softwarové aplikace a programování",
-    universityName: "Provozně ekonomická fakulta ČZU",
-    universityPeriod: "2025 – Nyní",
-    universityField: "Obor: Informatika",
-    languages: "Jazyky",
-    english: "Angličtina- Rodilý mluvčí",
-    czech: "Čeština - Plynulá",
-    experience: "🛠️ Zkušenosti",
-    experienceDetails: [
-      "Vytvořil jsem webovou stránku pro církev pomocí JavaScriptu, HTML a CSS a později jsem ji převedl na React, abych přidal dynamické funkce.",
-      "Spravuju audio-vizuální vybavení a živé vysílání pro církev.",
-      "Vytvořil jsem webovou stránku pro neziskovou organizaci pomocí Reactu a vytvořil jsem administrační aplikaci pro správu členů, darů, událostí a registrací s Reactem a Firebase.",
-    ],
-    downloadCV: "Stáhnout CV",
-    about:'About Me',
-    aboutMe:`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`
-
+    schoolProgram: "Program: Software Applications and Programming",
+    contactText: "Feel free to reach out to me for any opportunities or collaborations."
   },
+
+  // Czech
+  {
+    home: "Domů",
+    about: "O mně",
+    skills: "Dovednosti",
+    experience: "Zkušenosti",
+    education: "Vzdělání",
+    contact: "Kontakt",
+    welcome: "Vítejte v mém portfoliu",
+    position: "Full Stack Vývojář",
+    intro: "Vášnivý vývojář vytvářející inovativní webová řešení s moderními technologiemi.",
+    downloadCV: "Stáhnout CV",
+    contactMe: "Kontaktujte mě",
+    aboutMe: "O mně",
+    aboutDetail: "Jsem oddaný full-stack vývojář s zkušenostmi v tvorbě webových aplikací pomocí moderních technologií jako React, Next.js a Firebase. Baví mě řešit komplexní problémy a vytvářet uživatelsky přívětivá rozhraní.",
+    technicalSkills: "Technické Dovednosti",
+    programmingFrameworks: "Programování & Frameworky",
+    toolsPlatforms: "Nástroje & Platformy",
+    experienceDetails: [
+      {
+        role: "Webový Vývojář",
+        company: "Na volné noze",
+        period: "2022 - Současnost",
+        description: "Vytvářel webové stránky pro klienty pomocí Reactu, JavaScriptu a moderních webových technologií."
+      },
+      {
+        role: "AV Technik",
+        company: "Církevní organizace",
+        period: "2021 - Současnost",
+        description: "Správa audio-vizuálního vybavení a služeb živého vysílání."
+      }
+    ],
+    universityName: "Provozně ekonomická fakulta ČZU",
+    universityPeriod: "2025 – Současnost",
+    universityField: "Obor: Informatika",
+    schoolName: "Střední škola elektrotechniky, multimédií a informatiky",
+    schoolPeriod: "2021 – 2025",
+    schoolProgram: "Obor: Softwarové aplikace a programování",
+    contactText: "Neváhejte mě kontaktovat pro jakékoli příležitosti nebo spolupráci."
+  }
 ];

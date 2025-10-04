@@ -1,38 +1,12 @@
 'use client'
 import React from "react";
 import { useState, useEffect } from "react";
-import { 
-  Button, 
-  Typography, 
-  Space, 
-  Row, 
-  Col,
-  Avatar,
-  Tag,
-  Card,
-  Divider
-} from "antd";
-import { 
-  DownloadOutlined,
-  GlobalOutlined,
-  MailOutlined,
-  PhoneOutlined,
-  EnvironmentOutlined,
-  CodeOutlined,
-  ToolOutlined,
-  DatabaseOutlined,
-  CloudOutlined,
-  AppstoreOutlined,
-  ApiOutlined,
-  DesktopOutlined,
-  SecurityScanOutlined,
-  UserOutlined,
-  CalendarOutlined,
-  ProjectOutlined
-} from '@ant-design/icons';
+import { Button, Typography, Space, Row, Col, Avatar, Card } from "antd";
+import { DownloadOutlined, GlobalOutlined, MailOutlined, PhoneOutlined, EnvironmentOutlined, CodeOutlined, ToolOutlined,
+  DatabaseOutlined, CalendarOutlined, ProjectOutlined } from '@ant-design/icons';
 import Image from "next/image";
-import { translations } from "./Data/Translation.js";
 import { Zoom } from "react-awesome-reveal";
+import { translations } from "./Data/Translation.js";
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -64,12 +38,12 @@ export default function Home() {
   }, []);
 
   // Dark color scheme
-  const colorPrimary = '#6366f1';  // Indigo
-  const colorSecondary = '#8b5cf6'; // Purple
-  const colorAccent = '#ec4899';   // Pink
-  const colorDark = '#0f172a';     // Dark blue
-  const colorCard = '#1e293b';     // Card background
-  const colorText = '#e2e8f0';     // Light text
+  const colorPrimary = '#6366f1';
+  const colorSecondary = '#8b5cf6';
+  const colorAccent = '#ec4899';
+  const colorDark = '#0f172a';
+  const colorCard = '#1e293b';
+  const colorText = '#e2e8f0';
 
   const skillsData = [
     {
@@ -104,7 +78,6 @@ export default function Home() {
         { name: 'MySQL', icon: '🐬' },
       ]
     },
-
   ];
 
   const navItems = [
@@ -198,7 +171,6 @@ export default function Home() {
         position: 'relative',
         overflow: 'hidden'
       }}>
-        {/* Animated background elements */}
         <div style={{
           position: 'absolute',
           top: '-10%',
@@ -223,86 +195,86 @@ export default function Home() {
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '40px 20px', width: '100%', position: 'relative', zIndex: 1 }}>
           <Zoom>
             <Row gutter={[32, 32]} align="middle">
-            <Col xs={24} md={12}>
-              <div style={{ padding: '20px' }}>
-                <Text style={{ color: colorPrimary, fontWeight: 600, fontSize: '18px' }}>{translations[lang].welcome}</Text>
-                <Title level={1} style={{ margin: '10px 0', fontSize: '3.5rem', fontWeight: 700, color: colorText }}>
-                  Augustine Kwasi Yeboah
-                </Title>
-                <Title level={2} style={{ color: colorPrimary, fontWeight: 400, marginBottom: 24 }}>
-                  {translations[lang].position}
-                </Title>
-                <Paragraph style={{ fontSize: '18px', marginBottom: 32, color: '#94a3b8' }}>
-                  {translations[lang].intro}
-                </Paragraph>
-                <Space size="middle">
-                  <Button 
-                    type="primary" 
-                    size="large" 
-                    icon={<DownloadOutlined />}
-                    href={`./cv_${lang}.pdf`}
-                    download
-                    style={{ 
-                      backgroundColor: colorPrimary, 
-                      borderColor: colorPrimary,
-                      height: '50px',
-                      padding: '0 25px',
-                      fontWeight: 600
-                    }}
-                  >
-                    {translations[lang].downloadCV}
-                  </Button>
-                  <Button 
-                    size="large"
-                    href="#contact"
-                    style={{ 
-                      color: colorText, 
-                      borderColor: colorPrimary,
-                      height: '50px',
-                      padding: '0 25px',
-                      fontWeight: 600
-                    }}
-                  >
-                    {translations[lang].contactMe}
-                  </Button>
-                </Space>
-              </div>
-            </Col>
-            <Col xs={24} md={12}>
-              <div style={{ 
-                display: 'flex', 
-                justifyContent: 'center',
-                position: 'relative'
-              }}>
-                <div style={{
-                  width: 350,
-                  height: 350,
-                  borderRadius: '50%',
-                  background: `linear-gradient(45deg, ${colorPrimary}, ${colorSecondary})`,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  overflow: 'hidden',
-                  boxShadow: `0 20px 40px rgba(99, 102, 241, 0.3)`
-                }}>
-                  <Zoom>
-                  <Avatar 
-                    size={320} 
-                    src={
-                      <Image
-                        src={'/cv_pic.jpg'}
-                        alt="Augustine Kwasi Yeboah"
-                        width={320}
-                        height={320}
-                        style={{ objectFit: 'cover' }}
-                      />
-                    }
-                  />
-                  </Zoom>
+              <Col xs={24} md={12}>
+                <div style={{ padding: '20px' }}>
+                  <Text style={{ color: colorPrimary, fontWeight: 600, fontSize: '18px' }}>{translations[lang].welcome}</Text>
+                  <Title level={1} style={{ margin: '10px 0', fontSize: '3.5rem', fontWeight: 700, color: colorText }}>
+                    Augustine Kwasi Yeboah
+                  </Title>
+                  <Title level={2} style={{ color: colorPrimary, fontWeight: 400, marginBottom: 24 }}>
+                    {translations[lang].position}
+                  </Title>
+                  <Paragraph style={{ fontSize: '18px', marginBottom: 32, color: '#94a3b8' }}>
+                    {translations[lang].intro}
+                  </Paragraph>
+                  <Space size="middle">
+                    <Button 
+                      type="primary" 
+                      size="large" 
+                      icon={<DownloadOutlined />}
+                      href={`./cv_${lang === 0 ? 'en' : 'cz'}.pdf`}
+                      download
+                      style={{ 
+                        backgroundColor: colorPrimary, 
+                        borderColor: colorPrimary,
+                        height: '50px',
+                        padding: '0 25px',
+                        fontWeight: 600
+                      }}
+                    >
+                      {translations[lang].downloadCV}
+                    </Button>
+                    <Button 
+                      size="large"
+                      href="#contact"
+                      style={{ 
+                        color: colorText, 
+                        borderColor: colorPrimary,
+                        height: '50px',
+                        padding: '0 25px',
+                        fontWeight: 600
+                      }}
+                    >
+                      {translations[lang].contactMe}
+                    </Button>
+                  </Space>
                 </div>
-              </div>
-            </Col>
-          </Row>
+              </Col>
+              <Col xs={24} md={12}>
+                <div style={{ 
+                  display: 'flex', 
+                  justifyContent: 'center',
+                  position: 'relative'
+                }}>
+                  <div style={{
+                    width: 350,
+                    height: 350,
+                    borderRadius: '50%',
+                    background: `linear-gradient(45deg, ${colorPrimary}, ${colorSecondary})`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    overflow: 'hidden',
+                    boxShadow: `0 20px 40px rgba(99, 102, 241, 0.3)`
+                  }}>
+                    <Zoom>
+                      <Avatar 
+                        size={320} 
+                        src={
+                          <Image
+                            src={'/cv_pic.jpg'}
+                            alt="Augustine Kwasi Yeboah"
+                            width={320}
+                            height={320}
+                            style={{ objectFit: 'cover' }}
+                          />
+                        }
+                      />
+                    </Zoom>
+                  </div>
+                </div>
+              </Col>
+            </Row>
           </Zoom>
         </div>
       </section>
@@ -311,72 +283,72 @@ export default function Home() {
       <section id="about" style={{ padding: '100px 20px', backgroundColor: colorCard }}>
         <div style={{ maxWidth: 1000, margin: '0 auto' }}>
           <Zoom>
-          <Title level={2} style={{ textAlign: 'center', marginBottom: 64, color: colorText }}>
-            {translations[lang].aboutMe}
-          </Title>
-          <Row gutter={[32, 32]}>
-            <Col xs={24} md={8}>
-              <Card 
-                style={{ 
-                  textAlign: 'center', 
-                  border: 'none', 
-                  boxShadow: '0 5px 15px rgba(0,0,0,0.2)',
-                  backgroundColor: 'rgba(30, 41, 59, 0.5)',
-                  backdropFilter: 'blur(10px)'
-                }}
-              >
-                <div style={{ fontSize: 48, color: colorPrimary, marginBottom: 16 }}>
-                  <EnvironmentOutlined />
-                </div>
-                <Title level={4} style={{ color: colorText }}>Location</Title>
-                <Text style={{ color: '#94a3b8' }}>Praha, Czechia</Text>
-              </Card>
-            </Col>
-            <Col xs={24} md={8}>
-              <Card 
-                style={{ 
-                  textAlign: 'center', 
-                  border: 'none', 
-                  boxShadow: '0 5px 15px rgba(0,0,0,0.2)',
-                  backgroundColor: 'rgba(30, 41, 59, 0.5)',
-                  backdropFilter: 'blur(10px)'
-                }}
-              >
-                <div style={{ fontSize: 48, color: colorSecondary, marginBottom: 16 }}>
-                  <CalendarOutlined />
-                </div>
-                <Title level={4} style={{ color: colorText }}>Experience</Title>
-                <Text style={{ color: '#94a3b8' }}>3+ Years</Text>
-              </Card>
-            </Col>
-            <Col xs={24} md={8}>
-              <Card 
-                style={{ 
-                  textAlign: 'center', 
-                  border: 'none', 
-                  boxShadow: '0 5px 15px rgba(0,0,0,0.2)',
-                  backgroundColor: 'rgba(30, 41, 59, 0.5)',
-                  backdropFilter: 'blur(10px)'
-                }}
-              >
-                <div style={{ fontSize: 48, color: colorAccent, marginBottom: 16 }}>
-                  <ProjectOutlined />
-                </div>
-                <Title level={4} style={{ color: colorText }}>Projects</Title>
-                <Text style={{ color: '#94a3b8' }}>5+ Completed</Text>
-              </Card>
-            </Col>
-          </Row>
-          <div style={{ marginTop: 64, textAlign: 'center' }}>
-            <Paragraph style={{ fontSize: 18, lineHeight: 1.8, color: '#94a3b8' }}>
-              {translations[lang].aboutDetail}
-            </Paragraph>
-          </div>
-        </Zoom>
+            <Title level={2} style={{ textAlign: 'center', marginBottom: 64, color: colorText }}>
+              {translations[lang].aboutMe}
+            </Title>
+            <Row gutter={[32, 32]}>
+              <Col xs={24} md={8}>
+                <Card 
+                  style={{ 
+                    textAlign: 'center', 
+                    border: 'none', 
+                    boxShadow: '0 5px 15px rgba(0,0,0,0.2)',
+                    backgroundColor: 'rgba(30, 41, 59, 0.5)',
+                    backdropFilter: 'blur(10px)'
+                  }}
+                >
+                  <div style={{ fontSize: 48, color: colorPrimary, marginBottom: 16 }}>
+                    <EnvironmentOutlined />
+                  </div>
+                  <Title level={4} style={{ color: colorText }}>Location</Title>
+                  <Text style={{ color: '#94a3b8' }}>Praha, Czechia</Text>
+                </Card>
+              </Col>
+              <Col xs={24} md={8}>
+                <Card 
+                  style={{ 
+                    textAlign: 'center', 
+                    border: 'none', 
+                    boxShadow: '0 5px 15px rgba(0,0,0,0.2)',
+                    backgroundColor: 'rgba(30, 41, 59, 0.5)',
+                    backdropFilter: 'blur(10px)'
+                  }}
+                >
+                  <div style={{ fontSize: 48, color: colorSecondary, marginBottom: 16 }}>
+                    <CalendarOutlined />
+                  </div>
+                  <Title level={4} style={{ color: colorText }}>Experience</Title>
+                  <Text style={{ color: '#94a3b8' }}>3+ Years</Text>
+                </Card>
+              </Col>
+              <Col xs={24} md={8}>
+                <Card 
+                  style={{ 
+                    textAlign: 'center', 
+                    border: 'none', 
+                    boxShadow: '0 5px 15px rgba(0,0,0,0.2)',
+                    backgroundColor: 'rgba(30, 41, 59, 0.5)',
+                    backdropFilter: 'blur(10px)'
+                  }}
+                >
+                  <div style={{ fontSize: 48, color: colorAccent, marginBottom: 16 }}>
+                    <ProjectOutlined />
+                  </div>
+                  <Title level={4} style={{ color: colorText }}>Projects</Title>
+                  <Text style={{ color: '#94a3b8' }}>5+ Completed</Text>
+                </Card>
+              </Col>
+            </Row>
+            <div style={{ marginTop: 64, textAlign: 'center' }}>
+              <Paragraph style={{ fontSize: 18, lineHeight: 1.8, color: '#94a3b8' }}>
+                {translations[lang].aboutDetail}
+              </Paragraph>
+            </div>
+          </Zoom>
         </div>
       </section>
 
-      {/* Skills Section - Updated with rows and no progress bars */}
+      {/* Skills Section */}
       <section id="skills" style={{ padding: '100px 20px', backgroundColor: colorDark }}>
         <div style={{ maxWidth: 1000, margin: '0 auto' }}>
           <Title level={2} style={{ textAlign: 'center', marginBottom: 64, color: colorText }}>
@@ -576,7 +548,7 @@ export default function Home() {
                 <Space direction="vertical" style={{ width: '100%' }} size="large">
                   <Space>
                     <MailOutlined style={{ color: colorPrimary, fontSize: 20 }} />
-                    <Text style={{ color: colorText }}>ayeboahjnr@outlook.cz</Text>
+                    <Text  style={{ color: colorText }}>gegeyeboah@gmail.com</Text>
                   </Space>
                   <Space>
                     <PhoneOutlined style={{ color: colorPrimary, fontSize: 20 }} />
@@ -633,6 +605,22 @@ export default function Home() {
                   >
                     Lighthouse Church
                   </Button>
+
+                  <Button 
+                    type="primary" 
+                    href="https://todo-list-react-alpha-ten.vercel.app/" 
+                    target="_blank"
+                    icon={<GlobalOutlined />}
+                    block
+                    size="large"
+                    style={{ 
+                      backgroundColor: colorPrimary, 
+                      borderColor: colorPrimary,
+                      height: '50px'
+                    }}
+                  >
+                    Vehicle Maintenence App
+                  </Button>
                 </Space>
               </Card>
             </Col>
@@ -649,7 +637,7 @@ export default function Home() {
         borderTop: `1px solid rgba(255,255,255,0.1)`
       }}>
         <Text style={{ color: '#94a3b8' }}>
-          © {new Date().getFullYear()} Augustine Kwasi Yeboah. All rights reserved.
+          © {new Date().getFullYear()} Augustine Kwasi Yeboah.
         </Text>
       </footer>
     </div>
