@@ -8,6 +8,10 @@ import Image from "next/image";
 import { Zoom } from "react-awesome-reveal";
 import { translations } from "./Data/Translation.js";
 
+
+const cvcz = 'app\cvs\Augustine_Kwasi_Yeboah_cz.pdf'
+const cven = 'app\cvs\Augustine_Kwasi_Yeboah_en.pdf'
+
 const { Title, Text, Paragraph } = Typography;
 
 export default function Home() {
@@ -207,37 +211,6 @@ export default function Home() {
                   <Paragraph style={{ fontSize: '18px', marginBottom: 32, color: '#94a3b8' }}>
                     {translations[lang].intro}
                   </Paragraph>
-                  <Space size="middle">
-                    <Button 
-                      type="primary" 
-                      size="large" 
-                      icon={<DownloadOutlined />}
-                      href={`./cv_${lang === 0 ? 'en' : 'cz'}.pdf`}
-                      download
-                      style={{ 
-                        backgroundColor: colorPrimary, 
-                        borderColor: colorPrimary,
-                        height: '50px',
-                        padding: '0 25px',
-                        fontWeight: 600
-                      }}
-                    >
-                      {translations[lang].downloadCV}
-                    </Button>
-                    <Button 
-                      size="large"
-                      href="#contact"
-                      style={{ 
-                        color: colorText, 
-                        borderColor: colorPrimary,
-                        height: '50px',
-                        padding: '0 25px',
-                        fontWeight: 600
-                      }}
-                    >
-                      {translations[lang].contactMe}
-                    </Button>
-                  </Space>
                 </div>
               </Col>
               <Col xs={24} md={12}>
