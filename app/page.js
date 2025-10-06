@@ -521,7 +521,7 @@ export default function Home() {
                 <Space direction="vertical" style={{ width: '100%' }} size="large">
                   <Space>
                     <MailOutlined style={{ color: colorPrimary, fontSize: 20 }} />
-                    <Text  style={{ color: colorText }}>gegeyeboah@gmail.com</Text>
+                    <Text  style={{ color: colorText }}>gegeyeboah@gmail.com | ayeboahjnr@outlook.cz</Text>
                   </Space>
                   <Space>
                     <PhoneOutlined style={{ color: colorPrimary, fontSize: 20 }} />
